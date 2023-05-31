@@ -70,7 +70,7 @@ class CellSegmentationGUI:
         self.run_button = tk.Button(self.left_frame, text="Generate Functions", command=self.run_sc)
         self.run_button.pack(pady=20)
 
-        # Create menu
+        # Create menus
         self.menu = tk.Menu(self.root)
         self.root.config(menu=self.menu)
 
