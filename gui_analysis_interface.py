@@ -104,7 +104,12 @@ class CellSegmentationGUI:
         self.text_widget.insert(tk.END, "Author: Noah Shaul\n")
 
     def run_sc(self):
-        self.subprocess.call["python", "script path here"]
+        min_length = self.enter_min_length.get()
+        script = "script_prac.py"
+        command = ["python", script, "--min_length", min_length]
+        subprocess.call(command)
+        self.text_widget.insert(tk.END, f"Script {script} successfully executed\n")
+        # self.right_frame(text="Script executed")
 
 
 # Create the main window
