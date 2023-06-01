@@ -11,6 +11,9 @@ class CellSegmentationGUI:
         # Configure initial window size
         self.root.geometry("900x500")
 
+        # this is the script we will be executing through the GUI
+        self.global_script = ""
+
         # self.menu = Menu(root)
         # item = Menu(menu)
         # item.add_command(label='New')
@@ -39,7 +42,7 @@ class CellSegmentationGUI:
         self.scrollbar.config(command=self.text_widget.yview)
 
         # Create file path selection button
-        self.file_button = tk.Button(self.left_frame, text="Select File Location", command=self.select_file)
+        self.file_button = tk.Button(self.left_frame, text="Select Folder Location", command=self.select_file)
         self.file_button.pack(pady=10)
 
         # Create checkbox for histogram
@@ -87,8 +90,8 @@ class CellSegmentationGUI:
         self.about_menu.add_command(label="Author", command=self.show_author)
 
     def select_file(self):
-        filepath = filedialog.askopenfilename()
-        self.text_widget.insert(tk.END, f"Selected file: {filepath}\n")
+        filepath = filedialog.askdirectory()
+        self.text_widget.insert(tk.END, f"Selected folder: {filepath}\n")
 
     def open_file(self):
         self.text_widget.insert(tk.END, "Open file option selected\n")
@@ -105,10 +108,12 @@ class CellSegmentationGUI:
 
     def run_sc(self):
         min_length = self.enter_min_length.get()
-        script = "script_prac.py"
-        command = ["python", script, "--min_length", min_length]
+       # save_path = "\Noah Shaul\Desktop\UNC 2022-23\CellMigrationAnalysisGUI"
+        # script = "output_test.py {} {}".format(save_path, min_length)
+        # script = "script_prac.py"
+        command = ["python", script]
         subprocess.call(command)
-        self.text_widget.insert(tk.END, f"Script {script} successfully executed\n")
+        # self.text_widget.insert(tk.END, f"Script {script} successfully executed\n")
         # self.right_frame(text="Script executed")
 
 
