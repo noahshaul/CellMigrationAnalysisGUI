@@ -16,7 +16,8 @@ run file gui_analysis_interface.py
   #### 2. Clone repo
   1. install python 
   2. clone Git repo
-  3. launch gui_analysis_interface.py
+  3. open terminal and run pip install -r reuirements.txt
+  4. launch gui_analysis_interface.py
 
 ## Code functionality
 
